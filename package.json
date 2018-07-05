@@ -1,6 +1,6 @@
 {
   "name": "v8-json",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "V8 JSON Parse/Stringify",
   "main": "index.js",
   "scripts": {

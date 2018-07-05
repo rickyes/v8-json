@@ -1,0 +1,8 @@
+language: node_js
+sudo: false
+node_js:
+- "9"
+script:
+- npm install
+- npm install mocha -g
+- mocha test.js

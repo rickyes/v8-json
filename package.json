@@ -1,11 +1,12 @@
 {
   "name": "v8-json",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "V8 JSON Parse/Stringify",
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js",
-    "install": "node-gyp rebuild"
+    "install": "node-gyp rebuild",
+    "bench": "node ./benchmarks/parse.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/zhoumingque/v8-json/issues"
   },
-  "homepage": "https://github.com/zhoumingque/v8-json#readme"
+  "homepage": "https://github.com/zhoumingque/v8-json#readme",
+  "dependencies": {}
 }

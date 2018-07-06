@@ -1,7 +1,8 @@
 #include <node.h>
+#include "v8json.h"
 
 namespace ___V8JSON___ {
-
+  
   using v8::FunctionCallbackInfo;
   using v8::Isolate;
   using v8::HandleScope;
@@ -14,7 +15,15 @@ namespace ___V8JSON___ {
   using v8::Object;
   using v8::Value;
 
-  void parse(const FunctionCallbackInfo<Value>& args){
+  v8json::v8json(){
+
+  }
+
+  v8json::~v8json(){
+
+  }
+
+  void v8json::parse(const FunctionCallbackInfo<Value>& args){
     Isolate* isolate = Isolate::GetCurrent();
     HandleScope scope(isolate);
 
@@ -32,7 +41,7 @@ namespace ___V8JSON___ {
     args.GetReturnValue().Set(value);
   }
 
-  void stringify(const FunctionCallbackInfo<Value>& args){
+  void v8json::stringify(const FunctionCallbackInfo<Value>& args){
     Isolate* isolate = Isolate::GetCurrent();
     HandleScope scope(isolate);
     if (!args[0]->IsObject()){
@@ -44,15 +53,4 @@ namespace ___V8JSON___ {
     args.GetReturnValue().Set(value);
   }
 
-  void Init(Local<Object> exports, Local<Object> module){
-    Isolate* isolate = Isolate::GetCurrent();
-    HandleScope scope(isolate);
-    Local<FunctionTemplate> p = FunctionTemplate::New(isolate, parse);
-    Local<FunctionTemplate> s = FunctionTemplate::New(isolate, stringify);
-    exports->Set(String::NewFromUtf8(isolate,"parse"), p->GetFunction());
-    exports->Set(String::NewFromUtf8(isolate,"stringify"), s->GetFunction());
-  }
-
-  NODE_MODULE(vjson, Init);
-
-};
+}

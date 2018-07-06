@@ -1,1 +1,1 @@
-module.exports = require('./build/Release/v-json.node');
+module.exports = require('./build/Release/v8json.node');

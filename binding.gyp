@@ -1,8 +1,9 @@
 {
     "targets": [{
-        "target_name": "v-json",
+        "target_name": "v8json",
         "sources": [
-            "v-json.cpp"
+            "main.cc",
+            "v8json.cc"
         ]
     }]
 }

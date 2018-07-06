@@ -25,7 +25,7 @@ v.stringify({b: true}); // '{"b": true}'
 
 
 ## Author
-Polix © [Allen泽阳](https://github.com/zhoumingque), Released under the MIT License.  
+v8-json © [Allen泽阳](https://github.com/zhoumingque), Released under the MIT License.  
 
 Authored and maintained by [Allen泽阳](https://github.com/zhoumingque) with help from contributors ([list](https://github.com/zhoumingque/v8-json/graphs/contributors)).
 > [zhoumq.cn](http://git.zhoumq.cn) · GitHub [@zhoumq](https://github.com/zhoumingque)

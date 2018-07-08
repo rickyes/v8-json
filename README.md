@@ -1,7 +1,7 @@
 # v8-json
 V8 JSON Parse/Stringify
 
-[![Build Status](https://travis-ci.org/zhoumingque/v8-json.svg?branch=master)](https://travis-ci.org/zhoumingque/v8-json) [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/v8-json) [![node (scoped)](https://img.shields.io/badge/node-%3E%3D9.0.0-green.svg)](https://www.npmjs.com/package/v8-json)
+[![Build Status](https://travis-ci.org/rickyes/v8-json.svg?branch=master)](https://travis-ci.org/rickyes/v8-json) [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/v8-json) [![node (scoped)](https://img.shields.io/badge/node-%3E%3D9.0.0-green.svg)](https://www.npmjs.com/package/v8-json)
 
 
 ## Install
@@ -25,4 +25,4 @@ v.stringify({b: true}); // '{"b": true}'
 
 
 ## Author
-v8-json © [Ricky 泽阳](https://github.com/zhoumingque), Released under the MIT License.
+v8-json © [Ricky 泽阳](https://github.com/rickyes), Released under the MIT License.

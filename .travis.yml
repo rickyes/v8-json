@@ -1,12 +1,25 @@
-language: node_js
 sudo: false
-os: osx
+language: cpp
+compiler: gcc
+
+os: 
+- osx
+- linux
+
 node_js:
 - "8"
 - "10"
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export CC=/usr/bin/gcc-4.9;
+      export CXX=/usr/bin/g++-4.9;
+    fi
+
 install:
 - npm i -g codecov
 - npm i mocha -g
+
 script:
 - npm install
 - npm run build

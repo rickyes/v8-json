@@ -1,3 +1,5 @@
+'use strict';
+
 const v = require('.');
 const assert = require('assert');
 

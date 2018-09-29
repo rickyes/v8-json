@@ -2,7 +2,7 @@
 
 const os = require('os');
 const childProcess = require('child_process');
-const v = require('../');
+const v = require('..');
 
 console.log('==========================');
 console.log('v8-json: ' + require('../package.json').version);

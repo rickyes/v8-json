@@ -8,4 +8,5 @@ install:
 - npm i mocha -g
 script:
 - npm install
+- npm run build
 - mocha test.js

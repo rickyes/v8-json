@@ -12,6 +12,11 @@ V8 JSON Parse/Stringify
 $ npm i v8-json --save
 ```
 
+## Platform
+- [x] OSX
+- [ ] Linux
+- [ ] Windows
+
 ## Getting Started
 ```js
 const v = require('v8-json');

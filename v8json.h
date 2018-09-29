@@ -1,17 +1,16 @@
 #ifndef V8JSON
 #define V8JSON
 
-#include <node.h>
+#include "node.h"
+#include "nan.h"
 
 namespace ___V8JSON___ {
-
-  using v8::FunctionCallbackInfo;
-  using v8::Value;
   
   class v8json {
     public:
-      static void parse(const FunctionCallbackInfo<Value>& args);
-      static void stringify(const FunctionCallbackInfo<Value>& args);
+      static void Initialize(v8::Local<v8::Object> target);
+      static NAN_METHOD(parse);
+      static NAN_METHOD(stringify);
     
     private:
       explicit v8json();

@@ -23,5 +23,7 @@
     "url": "https://github.com/rickyes/v8-json/issues"
   },
   "homepage": "https://github.com/rickyes/v8-json#readme",
-  "dependencies": {}
+  "dependencies": {
+    "nan": "^2.11.1"
+  }
 }

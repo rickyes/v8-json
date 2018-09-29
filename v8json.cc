@@ -23,34 +23,43 @@ namespace ___V8JSON___ {
 
   }
 
-  void v8json::parse(const FunctionCallbackInfo<Value>& args){
-    Isolate* isolate = Isolate::GetCurrent();
-    HandleScope scope(isolate);
+  void v8json::Initialize(Local<Object> target) {
+    Nan::HandleScope scope;
 
-    if (!args[0]->IsString()){
-      isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Param is Not String!")));
-      return;
-    }
-  
-    MaybeLocal<Value> json = JSON::Parse(isolate,args[0]->ToString());
-    if (json.IsEmpty()){
-      isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Param is Not JSON String!")));
-      return;
-    }
-    Local<Value> value = json.ToLocalChecked();
-    args.GetReturnValue().Set(value);
+    Local<Object> result = Nan::New<Object>();
+    Nan::SetMethod(result, "parse", v8json::parse);
+    Nan::SetMethod(result, "stringify", v8json::stringify);
+
+    target->Set(Nan::New<String>("v8json").ToLocalChecked(), result);
   }
 
-  void v8json::stringify(const FunctionCallbackInfo<Value>& args){
-    Isolate* isolate = Isolate::GetCurrent();
-    HandleScope scope(isolate);
-    if (!args[0]->IsObject()){
-      isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Param is Not Object!")));
+  NAN_METHOD(v8json::parse) {
+    if (!info[0]->IsString()) {
+      Nan::ThrowError("Param is Not String!");
       return;
     }
-    MaybeLocal<String> str = JSON::Stringify(Isolate::GetCurrent()->GetCurrentContext(),args[0]->ToObject());
+
+    Nan::JSON NanJSON;
+    Nan::MaybeLocal<Value> json = NanJSON.Parse(info[0]->ToString());
+    if (json.IsEmpty()) {
+      Nan::ThrowError("Param is Not JSON String!");
+      return;
+    }
+
+    Local<Value> value = json.ToLocalChecked();
+    info.GetReturnValue().Set(value);
+  }
+
+  NAN_METHOD(v8json::stringify) {
+    if (!info[0]->IsObject()) {
+      Nan::ThrowError("Param is Not Object!");
+      return;
+    }
+
+    Nan::JSON NanJSON;
+    Nan::MaybeLocal<String> str = NanJSON.Stringify(info[0]->ToObject());
     Local<String> value = str.ToLocalChecked();
-    args.GetReturnValue().Set(value);
+    info.GetReturnValue().Set(value);
   }
 
 }
